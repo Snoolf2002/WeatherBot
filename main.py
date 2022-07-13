@@ -1,5 +1,8 @@
 import logging
+# import os
 
+# import updater
+# import updater as updater
 from aiogram import Bot, Dispatcher, executor, types
 import requests
 
@@ -41,6 +44,11 @@ async def weather(message: types.Message):
         daraja = res["current"]["temp_c"]
         await message.answer(f"{city_user.capitalize()} → {daraja}°.")
 
+# PORT = int(os.environ.get("PORT", 13978))
+# updater.start_webhook(listen="0.0.0.0",
+#                           port=PORT,
+#                           url_path=API_TOKEN)
+# updater.bot.setWebhook('https://rocky-castle-64391.herokuapp.com/' + API_TOKEN)
 
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
